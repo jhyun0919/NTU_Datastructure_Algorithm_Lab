@@ -1,4 +1,4 @@
-#include <studio.h>
+#include <stdio.h>
 
 #define MAX 5
 
@@ -9,7 +9,7 @@ void marks_array_init(void);
 
 void insert_marks(int);
 
-void main() {
+int main() {
     marks_array_init();
 
     for (i = 0; i <= 5; i++) {
@@ -27,12 +27,14 @@ void main() {
         }
     }
 
-    void marks_array_init(void) {
-        t = -1;
-    }
+    return 0;
+}
 
-    void insert_marks(int) {
-        t = t + 1;
-        marks[t] = x;
-    }
+void marks_array_init(void) {
+    t = -1;
+}
+
+void insert_marks(int x) {
+    t = t + 1;
+    marks[t] = x;
 }
