@@ -8,15 +8,20 @@ char checker;
 int data[SIZE];
 
 void stack_init();
+
 bool empty();
+
 void push(int val);
+
 void pop();
+
 int top();
+
 int function_select(int item);
 
 int main() {
 
-    do{
+    do {
         // make the stack empty
         stack_init();
         // return true if the stack is empty. Return false if the stack is not empty
@@ -31,22 +36,22 @@ int main() {
 
             result = function_select(var);
 
-            if (result > 0){
-                printf("%d\n", result );
+            if (result > 0) {
+                printf("%d\n", result);
             }
         }
 
-        while(1){
+        while (1) {
             fflush(stdin);
             printf("Do you want to test again? [y/n]");
             scanf("%c", &checker);
 
-            if(checker == 'y' | checker == 'Y' |checker == 'n' | checker == 'N')
+            if (checker == 'y' | checker == 'Y' | checker == 'n' | checker == 'N')
                 break;
             else
                 printf("wrong input.\n");
         }
-    }while (checker == 'y' | checker == 'Y');
+    } while (checker == 'y' | checker == 'Y');
 
     return 0;
 }
@@ -64,6 +69,7 @@ void push(int val) {
     t = t + 1;
     data[t] = val;
 }
+
 void pop() {
     t = t - 1;
 }
@@ -72,20 +78,20 @@ int top() {
     return data[t];
 }
 
-int function_select(int item){
+int function_select(int item) {
     if (item < 0) {
-        if(empty()){
+        if (empty()) {
             printf("Error - Stack is empty.\n");
             return -1;
         }
         return top();
     }
-    else if(item == 0){
-        if(empty())
+    else if (item == 0) {
+        if (empty())
             printf("Error - Stack is empty.\n");
         pop();
     }
-    else{
+    else {
         push(item);
     }
 

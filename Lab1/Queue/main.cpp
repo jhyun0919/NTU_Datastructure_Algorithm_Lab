@@ -7,10 +7,15 @@ int r, f, i, var, result;
 int data[SIZE];
 
 void queue_init();
+
 bool empty();
+
 void enqueue(int val);
+
 void dequeue();
+
 int front();
+
 int function_select(int item);
 
 int main() {
@@ -20,24 +25,25 @@ int main() {
     empty();
 
     // test your program
-    while(var != -999){
+    while (var != -999) {
 
         printf("f = %d\nr = %d\n", f, r);
-        for (i = 0; i<SIZE; i++){
+        for (i = 0; i < SIZE; i++) {
             printf("%d ", data[i]);
         }
 
-        printf("\nInput value %d [exit : -999]=> ", i);
+        printf("\nInput value %d [exit : -999] = ", i);
         scanf("%d", &var);
 
-        if(var != -999){
+        if (var != -999) {
             result = function_select(var);
 
-            if (result > 0){
-                printf("%d\n", result );
+            if (result > 0) {
+                printf("%d\n", result);
             }
         }
     }
+
     return 0;
 }
 
@@ -47,7 +53,7 @@ void queue_init() {
 }
 
 bool empty() {
-    return (r==-1 && f==-1);
+    return (r == -1 && f == -1);
 }
 
 void enqueue(int val) {
@@ -58,16 +64,16 @@ void enqueue(int val) {
     else {
         r = r + 1;
 
-        if (r == SIZE){
+        if (r == SIZE) {
             r = 0;
-            if (r == f){
+            if (r == f) {
                 printf("Error - Queue is full.\n");
                 r = SIZE - 1;
                 return;
             }
         }
-        else{
-            if(r == f){
+        else {
+            if (r == f) {
                 printf("Error - Queue is full.\n");
                 r = r - 1;
                 return;
@@ -95,20 +101,20 @@ int front() {
     return data[f];
 }
 
-int function_select(int item){
+int function_select(int item) {
     if (item < 0) {
-        if(empty()){
+        if (empty()) {
             printf("Error - Queue is empty.\n");
             return -1;
         }
         return front();
     }
-    else if(item == 0){
-        if(empty())
+    else if (item == 0) {
+        if (empty())
             printf("Error - Queue is empty.\n");
         dequeue();
     }
-    else{
+    else {
         enqueue(item);
     }
 
